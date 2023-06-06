@@ -8,14 +8,4 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="test\test.py" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="test\test.py">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-  </ItemGroup>
-
 </Project>
