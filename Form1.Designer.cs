@@ -28,175 +28,172 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.richTextBox_output = new System.Windows.Forms.RichTextBox();
-            this.richTextBox_input = new System.Windows.Forms.RichTextBox();
-            this.richTextBox_console = new System.Windows.Forms.RichTextBox();
-            this.button_build = new System.Windows.Forms.Button();
-            this.button_loadfiles = new System.Windows.Forms.Button();
-            this.splitContainer_wrap = new System.Windows.Forms.SplitContainer();
-            this.splitContainer_left = new System.Windows.Forms.SplitContainer();
-            this.comboBox_langSelector = new System.Windows.Forms.ComboBox();
-            this.splitContainer_right = new System.Windows.Forms.SplitContainer();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer_wrap)).BeginInit();
-            this.splitContainer_wrap.Panel1.SuspendLayout();
-            this.splitContainer_wrap.Panel2.SuspendLayout();
-            this.splitContainer_wrap.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer_left)).BeginInit();
-            this.splitContainer_left.Panel1.SuspendLayout();
-            this.splitContainer_left.Panel2.SuspendLayout();
-            this.splitContainer_left.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer_right)).BeginInit();
-            this.splitContainer_right.Panel1.SuspendLayout();
-            this.splitContainer_right.Panel2.SuspendLayout();
-            this.splitContainer_right.SuspendLayout();
-            this.SuspendLayout();
+            richTextBox_output = new RichTextBox();
+            richTextBox_input = new RichTextBox();
+            richTextBox_console = new RichTextBox();
+            button_build = new Button();
+            button_loadfiles = new Button();
+            splitContainer_wrap = new SplitContainer();
+            splitContainer_left = new SplitContainer();
+            comboBox_langSelector = new ComboBox();
+            splitContainer_right = new SplitContainer();
+            ((System.ComponentModel.ISupportInitialize)splitContainer_wrap).BeginInit();
+            splitContainer_wrap.Panel1.SuspendLayout();
+            splitContainer_wrap.Panel2.SuspendLayout();
+            splitContainer_wrap.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainer_left).BeginInit();
+            splitContainer_left.Panel1.SuspendLayout();
+            splitContainer_left.Panel2.SuspendLayout();
+            splitContainer_left.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainer_right).BeginInit();
+            splitContainer_right.Panel1.SuspendLayout();
+            splitContainer_right.Panel2.SuspendLayout();
+            splitContainer_right.SuspendLayout();
+            SuspendLayout();
             // 
             // richTextBox_output
             // 
-            this.richTextBox_output.BackColor = System.Drawing.SystemColors.Window;
-            this.richTextBox_output.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox_output.Location = new System.Drawing.Point(0, 0);
-            this.richTextBox_output.Margin = new System.Windows.Forms.Padding(0);
-            this.richTextBox_output.Name = "richTextBox_output";
-            this.richTextBox_output.ReadOnly = true;
-            this.richTextBox_output.Size = new System.Drawing.Size(563, 311);
-            this.richTextBox_output.TabIndex = 0;
-            this.richTextBox_output.Text = "";
+            richTextBox_output.BackColor = SystemColors.Window;
+            richTextBox_output.Dock = DockStyle.Fill;
+            richTextBox_output.Location = new Point(0, 0);
+            richTextBox_output.Margin = new Padding(0);
+            richTextBox_output.Name = "richTextBox_output";
+            richTextBox_output.ReadOnly = true;
+            richTextBox_output.Size = new Size(563, 311);
+            richTextBox_output.TabIndex = 0;
+            richTextBox_output.Text = "";
             // 
             // richTextBox_input
             // 
-            this.richTextBox_input.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox_input.Location = new System.Drawing.Point(0, 0);
-            this.richTextBox_input.Margin = new System.Windows.Forms.Padding(0);
-            this.richTextBox_input.Name = "richTextBox_input";
-            this.richTextBox_input.Size = new System.Drawing.Size(563, 255);
-            this.richTextBox_input.TabIndex = 0;
-            this.richTextBox_input.Text = "";
+            richTextBox_input.Dock = DockStyle.Fill;
+            richTextBox_input.Location = new Point(0, 0);
+            richTextBox_input.Margin = new Padding(0);
+            richTextBox_input.Name = "richTextBox_input";
+            richTextBox_input.Size = new Size(563, 255);
+            richTextBox_input.TabIndex = 0;
+            richTextBox_input.Text = "";
             // 
             // richTextBox_console
             // 
-            this.richTextBox_console.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
-            this.richTextBox_console.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox_console.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(10)))), ((int)(((byte)(48)))));
-            this.richTextBox_console.Location = new System.Drawing.Point(0, 0);
-            this.richTextBox_console.Margin = new System.Windows.Forms.Padding(0);
-            this.richTextBox_console.Name = "richTextBox_console";
-            this.richTextBox_console.Size = new System.Drawing.Size(462, 312);
-            this.richTextBox_console.TabIndex = 0;
-            this.richTextBox_console.Text = "";
+            richTextBox_console.BackColor = Color.FromArgb(40, 40, 45);
+            richTextBox_console.Dock = DockStyle.Fill;
+            richTextBox_console.ForeColor = Color.FromArgb(203, 10, 48);
+            richTextBox_console.Location = new Point(0, 0);
+            richTextBox_console.Margin = new Padding(0);
+            richTextBox_console.Name = "richTextBox_console";
+            richTextBox_console.Size = new Size(462, 312);
+            richTextBox_console.TabIndex = 0;
+            richTextBox_console.Text = "";
             // 
             // button_build
             // 
-            this.button_build.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button_build.Location = new System.Drawing.Point(0, 225);
-            this.button_build.Name = "button_build";
-            this.button_build.Size = new System.Drawing.Size(462, 29);
-            this.button_build.TabIndex = 1;
-            this.button_build.Text = "編譯";
-            this.button_build.UseVisualStyleBackColor = true;
-            this.button_build.Click += new System.EventHandler(this.button_build_Click);
+            button_build.Dock = DockStyle.Bottom;
+            button_build.Location = new Point(0, 225);
+            button_build.Name = "button_build";
+            button_build.Size = new Size(462, 29);
+            button_build.TabIndex = 1;
+            button_build.Text = "編譯";
+            button_build.UseVisualStyleBackColor = true;
+            button_build.Click += button_build_Click;
             // 
             // button_loadfiles
             // 
-            this.button_loadfiles.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button_loadfiles.Location = new System.Drawing.Point(0, 196);
-            this.button_loadfiles.Name = "button_loadfiles";
-            this.button_loadfiles.Size = new System.Drawing.Size(462, 29);
-            this.button_loadfiles.TabIndex = 0;
-            this.button_loadfiles.Text = "選擇檔案";
-            this.button_loadfiles.UseVisualStyleBackColor = true;
-            this.button_loadfiles.Click += new System.EventHandler(this.button_loadfiles_Click);
+            button_loadfiles.Dock = DockStyle.Bottom;
+            button_loadfiles.Location = new Point(0, 196);
+            button_loadfiles.Name = "button_loadfiles";
+            button_loadfiles.Size = new Size(462, 29);
+            button_loadfiles.TabIndex = 0;
+            button_loadfiles.Text = "選擇檔案";
+            button_loadfiles.UseVisualStyleBackColor = true;
+            button_loadfiles.Click += button_loadfiles_Click;
             // 
             // splitContainer_wrap
             // 
-            this.splitContainer_wrap.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer_wrap.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer_wrap.Name = "splitContainer_wrap";
+            splitContainer_wrap.Dock = DockStyle.Fill;
+            splitContainer_wrap.Location = new Point(0, 0);
+            splitContainer_wrap.Name = "splitContainer_wrap";
             // 
             // splitContainer_wrap.Panel1
             // 
-            this.splitContainer_wrap.Panel1.Controls.Add(this.splitContainer_left);
+            splitContainer_wrap.Panel1.Controls.Add(splitContainer_left);
             // 
             // splitContainer_wrap.Panel2
             // 
-            this.splitContainer_wrap.Panel2.Controls.Add(this.splitContainer_right);
-            this.splitContainer_wrap.Size = new System.Drawing.Size(1029, 570);
-            this.splitContainer_wrap.SplitterDistance = 462;
-            this.splitContainer_wrap.TabIndex = 2;
+            splitContainer_wrap.Panel2.Controls.Add(splitContainer_right);
+            splitContainer_wrap.Size = new Size(1029, 570);
+            splitContainer_wrap.SplitterDistance = 462;
+            splitContainer_wrap.TabIndex = 2;
             // 
             // splitContainer_left
             // 
-            this.splitContainer_left.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer_left.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer_left.Name = "splitContainer_left";
-            this.splitContainer_left.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            splitContainer_left.Dock = DockStyle.Fill;
+            splitContainer_left.Location = new Point(0, 0);
+            splitContainer_left.Name = "splitContainer_left";
+            splitContainer_left.Orientation = Orientation.Horizontal;
             // 
             // splitContainer_left.Panel1
             // 
-            this.splitContainer_left.Panel1.Controls.Add(this.comboBox_langSelector);
-            this.splitContainer_left.Panel1.Controls.Add(this.button_loadfiles);
-            this.splitContainer_left.Panel1.Controls.Add(this.button_build);
+            splitContainer_left.Panel1.Controls.Add(comboBox_langSelector);
+            splitContainer_left.Panel1.Controls.Add(button_loadfiles);
+            splitContainer_left.Panel1.Controls.Add(button_build);
             // 
             // splitContainer_left.Panel2
             // 
-            this.splitContainer_left.Panel2.Controls.Add(this.richTextBox_console);
-            this.splitContainer_left.Size = new System.Drawing.Size(462, 570);
-            this.splitContainer_left.SplitterDistance = 254;
-            this.splitContainer_left.TabIndex = 0;
+            splitContainer_left.Panel2.Controls.Add(richTextBox_console);
+            splitContainer_left.Size = new Size(462, 570);
+            splitContainer_left.SplitterDistance = 254;
+            splitContainer_left.TabIndex = 0;
             // 
             // comboBox_langSelector
             // 
-            this.comboBox_langSelector.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.comboBox_langSelector.FormattingEnabled = true;
-            this.comboBox_langSelector.Items.AddRange(new object[] {
-            "cpp",
-            "python 3"});
-            this.comboBox_langSelector.Location = new System.Drawing.Point(0, 169);
-            this.comboBox_langSelector.Name = "comboBox_langSelector";
-            this.comboBox_langSelector.Size = new System.Drawing.Size(462, 27);
-            this.comboBox_langSelector.TabIndex = 2;
+            comboBox_langSelector.Dock = DockStyle.Bottom;
+            comboBox_langSelector.FormattingEnabled = true;
+            comboBox_langSelector.Items.AddRange(new object[] { "cpp", "python 3" });
+            comboBox_langSelector.Location = new Point(0, 169);
+            comboBox_langSelector.Name = "comboBox_langSelector";
+            comboBox_langSelector.Size = new Size(462, 27);
+            comboBox_langSelector.TabIndex = 2;
             // 
             // splitContainer_right
             // 
-            this.splitContainer_right.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer_right.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer_right.Name = "splitContainer_right";
-            this.splitContainer_right.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            splitContainer_right.Dock = DockStyle.Fill;
+            splitContainer_right.Location = new Point(0, 0);
+            splitContainer_right.Name = "splitContainer_right";
+            splitContainer_right.Orientation = Orientation.Horizontal;
             // 
             // splitContainer_right.Panel1
             // 
-            this.splitContainer_right.Panel1.Controls.Add(this.richTextBox_input);
+            splitContainer_right.Panel1.Controls.Add(richTextBox_input);
             // 
             // splitContainer_right.Panel2
             // 
-            this.splitContainer_right.Panel2.Controls.Add(this.richTextBox_output);
-            this.splitContainer_right.Size = new System.Drawing.Size(563, 570);
-            this.splitContainer_right.SplitterDistance = 255;
-            this.splitContainer_right.TabIndex = 0;
+            splitContainer_right.Panel2.Controls.Add(richTextBox_output);
+            splitContainer_right.Size = new Size(563, 570);
+            splitContainer_right.SplitterDistance = 255;
+            splitContainer_right.TabIndex = 0;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1029, 570);
-            this.Controls.Add(this.splitContainer_wrap);
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "Form1";
-            this.Text = "CodeTesting";
-            this.splitContainer_wrap.Panel1.ResumeLayout(false);
-            this.splitContainer_wrap.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer_wrap)).EndInit();
-            this.splitContainer_wrap.ResumeLayout(false);
-            this.splitContainer_left.Panel1.ResumeLayout(false);
-            this.splitContainer_left.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer_left)).EndInit();
-            this.splitContainer_left.ResumeLayout(false);
-            this.splitContainer_right.Panel1.ResumeLayout(false);
-            this.splitContainer_right.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer_right)).EndInit();
-            this.splitContainer_right.ResumeLayout(false);
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(9F, 19F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1029, 570);
+            Controls.Add(splitContainer_wrap);
+            Margin = new Padding(4);
+            Name = "Form1";
+            Text = "CodeTesting";
+            splitContainer_wrap.Panel1.ResumeLayout(false);
+            splitContainer_wrap.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainer_wrap).EndInit();
+            splitContainer_wrap.ResumeLayout(false);
+            splitContainer_left.Panel1.ResumeLayout(false);
+            splitContainer_left.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainer_left).EndInit();
+            splitContainer_left.ResumeLayout(false);
+            splitContainer_right.Panel1.ResumeLayout(false);
+            splitContainer_right.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainer_right).EndInit();
+            splitContainer_right.ResumeLayout(false);
+            ResumeLayout(false);
         }
 
         #endregion

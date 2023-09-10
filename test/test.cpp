@@ -2,10 +2,12 @@
 
 int main()
 {
-	int a, b;
-	while (scanf("%d %d", &a, &b) != EOF)
+	int a;
+	int n = 3;
+	while (scanf("%d", &a) != EOF)
 	{
-		printf("%d %d\n", a, b);
+		//printf("%d\n", a / (n--));
+		printf("%d\n", a);
 	}
 	return 0;
 }

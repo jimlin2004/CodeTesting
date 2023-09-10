@@ -1,0 +1,6 @@
+2023/09/10
+	1. 修復input檔案太大時程式崩潰的問題(透過異步、寫檔等方法達成)
+	2. 引入python 3.11 embeddable package版本(約20MB)
+	3. 現在c++是由python import pygdbmi去呼叫gdb為c++抓出runtime error，且c++是用 exe < input.txt > output.txt的方式實作
+	   (寫檔是為了配合gdb)
+	存檔紀錄 2023/09/10 --version 1.2
