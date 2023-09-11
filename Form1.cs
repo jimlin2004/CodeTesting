@@ -188,7 +188,7 @@ namespace CodeTesting
                 sw.Close();
 
                 Process process = new Process();
-                process.StartInfo.FileName = Path.Combine(Directory.GetCurrentDirectory(), "tool\\python\\python.exe");
+                process.StartInfo.FileName = Path.Combine(Directory.GetCurrentDirectory(), "tool/python/python.exe");
                 process.StartInfo.ArgumentList.Add(Path.Combine(Directory.GetCurrentDirectory(), "python/GDBApi.py"));
                 process.StartInfo.ArgumentList.Add(exePath);
                 process.StartInfo.ArgumentList.Add(inputPath);
@@ -249,7 +249,7 @@ namespace CodeTesting
                 this.clearConsoleBox();
 
                 Process process = new Process();
-                process.StartInfo.FileName = "python.exe";
+                process.StartInfo.FileName = Path.Combine(Directory.GetCurrentDirectory(), "tool/python/python.exe"); ;
                 process.StartInfo.Arguments = this.files[0]; //python
                 process.StartInfo.RedirectStandardOutput = true;
                 process.StartInfo.RedirectStandardError = true;
@@ -272,13 +272,13 @@ namespace CodeTesting
 
                 this.isHappenedError = false;
 
-                process.Start();
-                    int startTime = Environment.TickCount;    
+                process.Start();   
                     process.BeginOutputReadLine();
                     process.BeginErrorReadLine();
 
                     reader.CopyTo(process.StandardInput.BaseStream);
                     reader.Close();
+                    int startTime = Environment.TickCount; 
 
                     //process.StandardInput.WriteLine((char)26); //EOF
                     process.StandardInput.Close();

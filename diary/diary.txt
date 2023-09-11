@@ -4,3 +4,6 @@
 	3. 現在c++是由python import pygdbmi去呼叫gdb為c++抓出runtime error，且c++是用 exe < input.txt > output.txt的方式實作
 	   (寫檔是為了配合gdb)
 	存檔紀錄 2023/09/10 --version 1.2
+2023/09/11
+	1. 將python的process改成用此專案的python 3.11 embeddable package版本，防止使用者python環境變數或未安裝的問題發生
+	存檔紀錄 2023/09/11 --version 1.2
