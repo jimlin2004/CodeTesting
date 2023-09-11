@@ -228,6 +228,7 @@ namespace CodeTesting
                 {
                     StreamReader sr = new StreamReader(outputPath);
                     this.setOutput(sr.ReadToEnd());
+                    sr.Close();
 
                     this.console_log(Color.GreenYellow, "程式運行成功\n");
                     this.console_log(Color.GreenYellow, "程式執行時間: ");

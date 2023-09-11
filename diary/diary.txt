@@ -6,4 +6,5 @@
 	存檔紀錄 2023/09/10 --version 1.2
 2023/09/11
 	1. 將python的process改成用此專案的python 3.11 embeddable package版本，防止使用者python環境變數或未安裝的問題發生
+	2. 修復cppProcess中StreamReader沒有close的問題(未close則output.txt會被鎖定)
 	存檔紀錄 2023/09/11 --version 1.2
