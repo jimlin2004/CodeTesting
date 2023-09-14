@@ -8,3 +8,13 @@
 	1. 將python的process改成用此專案的python 3.11 embeddable package版本，防止使用者python環境變數或未安裝的問題發生
 	2. 修復cppProcess中StreamReader沒有close的問題(未close則output.txt會被鎖定)
 	存檔紀錄 2023/09/11 --version 1.2
+2023/09/13
+	1. 將python中與GDB溝通的moudle從pygdbmi改成自己寫的GDBManager，以此解決pygdbmi在測試程式
+	   運行較慢的情況下不能抓取完整的gdb report
+	Note: 今日未存檔
+2023/09/14
+	1. 完成c++的程式運行計時以及將output.txt的結果輸出至richTextBox_output中
+	2. 將pythonProcess也改成用cmd去執行，以此解決計時、redirect stdin以及原來的c#輸入做法在python遇到錯誤時
+	   會出現stdin管道關閉的錯誤問題
+	3. 現在程式可以處理更大的測資以及較久的程式執行時間
+	存檔紀錄 2023/09/14 --version 1.3

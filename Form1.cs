@@ -187,28 +187,20 @@ namespace CodeTesting
                 sw.Write(getRichTextBoxText(this.richTextBox_input));
                 sw.Close();
 
-                Process process = new Process();
-                process.StartInfo.FileName = Path.Combine(Directory.GetCurrentDirectory(), "tool/python/python.exe");
-                process.StartInfo.ArgumentList.Add(Path.Combine(Directory.GetCurrentDirectory(), "python/GDBApi.py"));
-                process.StartInfo.ArgumentList.Add(exePath);
-                process.StartInfo.ArgumentList.Add(inputPath);
-                process.StartInfo.ArgumentList.Add(outputPath);
-                process.StartInfo.RedirectStandardOutput = true;
-                process.StartInfo.RedirectStandardError = true;
-                process.StartInfo.CreateNoWindow = true;
-                //process.StartInfo.RedirectStandardInput = true;
-                process.StartInfo.WorkingDirectory = Path.GetDirectoryName(exePath);
-                
-                string executionTime = "";
-                process.OutputDataReceived += (sender, args) =>
-                {
-                    //this.printOutput(args.Data);
-                    // get c++ program execution time
-                    if (args.Data != null) 
-                        executionTime = args.Data;
-                };
+                string pythonModulePath = Path.Combine(Directory.GetCurrentDirectory(), "python/GDBApi.py").Replace("\\", "/");
 
-                process.ErrorDataReceived += (sender, args) =>
+                Process debugProcess = new Process();
+                debugProcess.StartInfo.FileName = Path.Combine(Directory.GetCurrentDirectory(), "tool/python/python.exe");
+                debugProcess.StartInfo.ArgumentList.Add(pythonModulePath);
+                debugProcess.StartInfo.ArgumentList.Add(exePath);
+                debugProcess.StartInfo.ArgumentList.Add(inputPath);
+                debugProcess.StartInfo.ArgumentList.Add(outputPath);
+                debugProcess.StartInfo.RedirectStandardOutput = true;
+                debugProcess.StartInfo.RedirectStandardError = true;
+                debugProcess.StartInfo.CreateNoWindow = true;
+                debugProcess.StartInfo.WorkingDirectory = Path.GetDirectoryName(pythonModulePath);
+
+                debugProcess.ErrorDataReceived += (sender, args) =>
                 {
                     this.printError(args.Data);
                 };
@@ -217,12 +209,37 @@ namespace CodeTesting
                 this.isNotFirstOutput = false;
                 this.isHappenedError = false;
 
-                process.Start();
-                    process.BeginOutputReadLine();
-                    process.BeginErrorReadLine();
+                debugProcess.Start();
+                    debugProcess.BeginOutputReadLine();
+                    debugProcess.BeginErrorReadLine();
 
-                    process.WaitForExit();
-                process.Close();
+                    debugProcess.WaitForExit();
+                debugProcess.Close();
+
+                if (this.isHappenedError)
+                {
+                    return;
+                }
+                else
+                {
+                    this.console_log(Color.GreenYellow, "Debug結束，無runtime error\n");
+                }
+
+                Process cppRunProcess = new Process();
+                cppRunProcess.StartInfo.FileName = "cmd.exe";
+                cppRunProcess.StartInfo.ArgumentList.Add(string.Format("/c {0} < {1}", exePath, inputPath));
+                cppRunProcess.StartInfo.CreateNoWindow = true;
+
+                // 初始化isNotFirstOutput
+                this.isNotFirstOutput = false;
+
+                this.isHappenedError = false;
+
+                cppRunProcess.Start();
+                    int startTime = Environment.TickCount;
+                    cppRunProcess.WaitForExit();
+                    int executionTime = Environment.TickCount - startTime;
+                cppRunProcess.Close();
 
                 if (!this.isHappenedError)
                 {
@@ -232,7 +249,7 @@ namespace CodeTesting
 
                     this.console_log(Color.GreenYellow, "程式運行成功\n");
                     this.console_log(Color.GreenYellow, "程式執行時間: ");
-                    this.console_log(Color.GreenYellow, executionTime + " s\n");
+                    this.console_log(Color.GreenYellow, (executionTime / 1000.0).ToString() + " s\n");
                 }
             });
         }
@@ -240,22 +257,23 @@ namespace CodeTesting
         private Task pythonProcess()
         {
             return Task.Run(() => { 
-                string filePath = Path.Combine(Path.GetDirectoryName(this.files[0]), "input.txt");
+                string inputPath = Path.Combine(Path.GetDirectoryName(this.files[0]), "input.txt");
 
                 // 將rictTextBox中的text寫入input.txt
-                StreamWriter sw = new StreamWriter(filePath);
+                StreamWriter sw = new StreamWriter(inputPath);
                 sw.Write(getRichTextBoxText(this.richTextBox_input));
                 sw.Close();
 
                 this.clearConsoleBox();
 
+                string pythonPath = Path.Combine(Directory.GetCurrentDirectory(), "tool/python/python.exe");
                 Process process = new Process();
-                process.StartInfo.FileName = Path.Combine(Directory.GetCurrentDirectory(), "tool/python/python.exe"); ;
-                process.StartInfo.Arguments = this.files[0]; //python
+                process.StartInfo.FileName = "cmd.exe";
+                process.StartInfo.ArgumentList.Add(string.Format("/c {0} {1} < {2}", pythonPath, this.files[0], inputPath));
                 process.StartInfo.RedirectStandardOutput = true;
                 process.StartInfo.RedirectStandardError = true;
                 process.StartInfo.CreateNoWindow = true;
-                process.StartInfo.RedirectStandardInput = true;
+                //process.StartInfo.RedirectStandardInput = true;
 
                 process.OutputDataReceived += (sender, args) =>
                 {
@@ -266,30 +284,26 @@ namespace CodeTesting
                     this.printError(args.Data);
                 };
 
-                FileStream reader = File.OpenRead(filePath);
-
                 // 初始化isNotFirstOutput
                 this.isNotFirstOutput = false;
 
                 this.isHappenedError = false;
 
+                this.clearConsoleBox();
+                this.console_log(Color.GreenYellow, "開始運行程式\n");
+
                 process.Start();   
                     process.BeginOutputReadLine();
                     process.BeginErrorReadLine();
 
-                    reader.CopyTo(process.StandardInput.BaseStream);
-                    reader.Close();
                     int startTime = Environment.TickCount; 
 
-                    //process.StandardInput.WriteLine((char)26); //EOF
-                    process.StandardInput.Close();
                     process.WaitForExit();
                     int executionTime = Environment.TickCount - startTime;
                 process.Close();
 
                 if (!this.isHappenedError)
                 {
-                    this.clearConsoleBox();
                     this.console_log(Color.GreenYellow, "程式運行成功\n");
                     this.console_log(Color.GreenYellow, "程式執行時間: ");
                     this.console_log(Color.GreenYellow, (executionTime / 1000.0f).ToString() + " s\n");
